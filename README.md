@@ -9,7 +9,7 @@ windows : 下载Git-1.9.4-preview20140815.exe进行安装
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
 ```
-todo:
+####todo:
 1. 如何用不用账号关联不同的git服务器？
 2. 不同的git仓库如何用不同的账号？
 
