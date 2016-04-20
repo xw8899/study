@@ -5,11 +5,13 @@ ubuntu : sudo apt-get install git
 windows : 下载Git-1.9.4-preview20140815.exe进行安装
 ###设置
 安装完毕后进行设置
+```
 $ git config --global user.name "Your Name"
 $ git config --global user.email "email@example.com"
+```
 todo:
-如何用不用账号关联不同的git服务器？
-不同的git仓库如何用不同的账号？
+1. 如何用不用账号关联不同的git服务器？
+2. 不同的git仓库如何用不同的账号？
 
 ## 初始化
 ### 添加文件
@@ -22,10 +24,12 @@ todo:
 第二步，使用命令git commit，完成。
 
 ### 删除文件
+```
 git rm test.txt
 git commit -m "remove test.txt"
-
+```
 ## 版本穿梭
+```
 git log 命令显示从最近到最远的提交日志
 git log --pretty=oneline
 
@@ -33,7 +37,7 @@ git reset --hard HEAD^
 git reset --hard 3628164
 
 git reflog记录每一次命令
-
+```
 HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
 
 穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
