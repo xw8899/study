@@ -1,13 +1,13 @@
 # study
 ## 准备
 ###安装
-ubuntu : sudo apt-get install git
-windows : 下载Git-1.9.4-preview20140815.exe进行安装
+1. ubuntu : sudo apt-get install git
+2. windows : 下载Git-1.9.4-preview20140815.exe进行安装
 ###设置
 安装完毕后进行设置
 ```
-$ git config --global user.name "Your Name"
-$ git config --global user.email "email@example.com"
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
 ```
 ####todo:
 1. 如何用不用账号关联不同的git服务器？
