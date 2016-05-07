@@ -129,7 +129,7 @@ git merge --no-ff -m "merge with no-ff" dev
     - git stash apply: 恢复工作现场
     - git stash drop: 删除工作现场
     - git stash pop: 恢复并删除工作现场
-     - git stash pop == git stash apply & git stash drop
+    - git stash pop == git stash apply & git stash drop
 ```
 $ git stash list
 stash@{0}: WIP on dev: 6224937 add merge
@@ -170,15 +170,17 @@ $ git stash apply stash@{0}
 所有配置文件可以直接在线浏览：https://github.com/github/gitignore
 
 ## 配置别名
+
 ```
-$ git config --global alias.st status
-$ git config --global alias.co checkout
-$ git config --global alias.ci commit
-$ git config --global alias.br branch
-$ git config --global alias.unstage 'reset HEAD'
-$ git config --global alias.last 'log -1'
-$ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+git config --global alias.st status
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.br branch
+git config --global alias.unstage 'reset HEAD'
+git config --global alias.last 'log -1'
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
 ```
+
 ## 配置文件
 
 配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。
