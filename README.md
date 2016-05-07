@@ -71,13 +71,15 @@ git管理的是修改
 
 # 远程仓库
 -----------------------
-1. 创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
-```
-$ ssh-keygen -t rsa -C "youremail@example.com"
-```
-    - 你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可;
-    - 如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件，这两个就是SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥。
-2. 登陆GitHub，打开“Account settings”，“SSH Keys”页面，然后，点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
+1. 创建SSH Key。在用户主目录下，看看有没有.ssh目录
+2. 如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件
+3. 如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
+  -ssh-keygen -t rsa -C "youremail@example.com"
+  - 你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可;
+  - 如果一切顺利的话，可以在用户主目录里找到.ssh目录，里面有id_rsa和id_rsa.pub两个文件
+  - 这两个就是SSH Key的秘钥对，id_rsa是私钥，id_rsa.pub是公钥。
+4. 登陆GitHub，打开“Account settings”，“SSH Keys”页面，
+5. 点“Add SSH Key”，填上任意Title，在Key文本框里粘贴id_rsa.pub文件的内容
 
 ## 添加远程库
 将本地库与远程库关联
@@ -121,15 +123,18 @@ git merge --no-ff -m "merge with no-ff" dev
 ```git log --graph --pretty=oneline --abbrev-commit```
 
 ## 保存当前工作现场
-- 场景：
-    - 当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它，但是，等等，当前正在dev上进行的工作还没有提交；可以用git status查看状态
-    - 并不是你不想提交，而是工作只进行到一半，还没法提交，但是，必须马上修复该bug，怎么办？此时可以用Git提供的stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
-    - git stash: 保存当前工作现场
-    - git stash list: 查看工作现场
-    - git stash apply: 恢复工作现场
-    - git stash drop: 删除工作现场
-    - git stash pop: 恢复并删除工作现场
-    - git stash pop == git stash apply & git stash drop
+- 场景
+   - 当你接到一个修复一个代号101的bug的任务时，很自然地，你想创建一个分支issue-101来修复它；
+   - 但是，等等，当前正在dev上进行的工作还没有提交；（例如，可以用git status查看状态）
+   - 并不是你不想提交，而是工作只进行到一半，还没法提交，但是，必须马上修复该bug，怎么办？
+   - 此时可以用Git提供的stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作。
+     - git stash: 保存当前工作现场
+     - git stash list: 查看工作现场
+     - git stash apply: 恢复工作现场
+     - git stash drop: 删除工作现场
+     - git stash pop: 恢复并删除工作现场
+     - git stash pop == git stash apply & git stash drop
+- 命令例子
 ```
 $ git stash list
 stash@{0}: WIP on dev: 6224937 add merge
@@ -165,12 +170,12 @@ $ git stash apply stash@{0}
 
 ## 忽略特殊文件
 
-在Git工作区的根目录下创建一个特殊的.gitignore文件，
-然后把要忽略的文件名填进去，Git就会自动忽略这些文件。
-所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+- 在Git工作区的根目录下创建一个特殊的.gitignore文件
+- 然后把要忽略的文件名填进去，Git就会自动忽略这些文件
+- 所有配置文件可以直接在线浏览：https://github.com/github/gitignore
 
 ## 配置别名
-
+常用的别名
 ```
 git config --global alias.st status
 git config --global alias.co checkout
@@ -183,8 +188,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 ## 配置文件
 
-配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用。
-
-每个仓库的Git配置文件都放在.git/config文件中,
-而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中;
+- 配置Git的时候，加上--global是针对当前用户起作用的，如果不加，那只针对当前的仓库起作用
+- 每个仓库的Git配置文件都放在.git/config文件中
+- 而当前用户的Git配置文件放在用户主目录下的一个隐藏文件.gitconfig中
 
